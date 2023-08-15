@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.DAL;
 using WebApplication1.IServices;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -24,17 +25,17 @@ namespace WebApplication1.Controllers
         [HttpPost]
         [Route("[action]")]
         [Route("/api/teacher/addteacher")]
-        public string addTeacherMethod() { return teacherService.addTeacher("Add teacher"); }
+        public Teacher addTeacherMethod(String teacher) { return teacherService.addTeacher(teacher); }
 
         [HttpGet]
         [Route("[action]")]
         [Route("/api/teacher/teachers")]
-        public string getAllTeachers() { return teacherService.getAllTeacher(); }
+        public List<Teacher> getAllTeachers() { return teacherService.getAllTeacher(); }
 
         [HttpGet]
         [Route("[action]")]
         [Route("/api/teacher/getteacher")]
-        public string getTeacherById() { return teacherService.getTeacherById("t1"); }
+        public Teacher getTeacherById(int id) { return teacherService.getTeacherById(id); }
 
     }
 }

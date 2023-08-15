@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.IServices;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -25,21 +26,21 @@ namespace WebApplication1.Controllers
         [HttpPost]
         [Route("[action]")]
         [Route("/api/student/addstudent")]
-        public string addStudentMethod() { return istudentS.addStudent("Add student"); }
+        public Student addStudentMethod() { return istudentS.addStudent("Add student"); }
 
         [HttpPut]
         [Route("[action]")]
         [Route("/api/student/updatestudent")]
-        public string updateStudentMethod() { return istudentS.updateStudent("Update student"); }
+        public Student updateStudentMethod() { return istudentS.updateStudent("Update student"); }
 
         [HttpDelete]
         [Route("[action]")]
         [Route("/api/student/deletestudent")]
-        public string deleteStudentMethod() { return istudentS.deleteStudent("Delete student"); }
+        public string deleteStudentMethod(int studentId) { return istudentS.deleteStudent(studentId); }
 
         [HttpGet]
         [Route("[action]")]
         [Route("/api/student/getstudent")]
-        public string getStudentMethod() { return istudentS.getStudent("Get student"); }
+        public Student getStudentMethod(int studentId) { return istudentS.getStudent(studentId); }
     }
 }

@@ -20,17 +20,17 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        [Route("/addclass")]
+        [Route("/api/addclass")]
         public Classroom addClassMethod(string className) { return _IclassroomService.addClassMethod(className); }
 
         [HttpGet]
-        [Route("/getclasses")]
+        [Route("/api/getclasses")]
         public List<Classroom> getAllClassRoomMethod() {
             return _IclassroomService.getAllClassRoom();
         }
 
         [HttpGet]
-        [Route("/getclassbyid")]
+        [Route("/api/getclassbyid")]
         public Classroom getClassroomById(int Id) {
             return _IclassroomService.getClassRoomById(Id);
         }
