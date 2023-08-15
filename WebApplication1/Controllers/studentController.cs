@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication1.DTO;
 using WebApplication1.IServices;
 using WebApplication1.Models;
 
@@ -26,12 +27,12 @@ namespace WebApplication1.Controllers
         [HttpPost]
         [Route("[action]")]
         [Route("/api/student/addstudent")]
-        public Student addStudentMethod() { return istudentS.addStudent("Add student"); }
+        public Student addStudentMethod(StudentDto studentDto) { return istudentS.addStudent(studentDto); }
 
         [HttpPut]
         [Route("[action]")]
         [Route("/api/student/updatestudent")]
-        public Student updateStudentMethod() { return istudentS.updateStudent("Update student"); }
+        public Student updateStudentMethod(StudentDto studentDto) { return istudentS.updateStudent(studentDto); }
 
         [HttpDelete]
         [Route("[action]")]

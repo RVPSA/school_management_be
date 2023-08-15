@@ -8,7 +8,7 @@ namespace WebApplication1.Models
 {
     public class AllocatedSubject
     {   [Key]
-        public int location_sub_Id { get; set; }
+        public int alocation_sub_Id { get; set; }
         public int teacher_Id { get; set; }
         public int subject_Id { get; set; }
     }
