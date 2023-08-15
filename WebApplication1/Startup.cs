@@ -32,6 +32,8 @@ namespace WebApplication1
             services.AddHttpClient();
             services.AddTransient<IStudent, StudentService>();
             services.AddTransient<ITeacherService, TeacherService>();
+            services.AddTransient<IClassroomService, ClassroomService>();
+            services.AddTransient<ISubjectService, SubjectService>();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
