@@ -38,5 +38,15 @@ namespace WebApplication1.Controllers
         [Route("/api/teacher/getteacher")]
         public Teacher getTeacherById(int id) { return teacherService.getTeacherById(id); }
 
+        [HttpGet]
+        [Route("[action]")]
+        [Route("/api/teacher/getallocationsubject")]
+        public List<Subject> getAllocationSubjectByTeacherId(int id) { return teacherService.getAllocateSubject(id); }
+
+        [HttpGet]
+        [Route("[action]")]
+        [Route("/api/teacher/getallocationclass")]
+        public List<Classroom> getAllocationClassByTeacherId(int id) { return teacherService.getAllocateClassRoom(id); }
+
     }
 }

@@ -48,5 +48,32 @@ namespace WebApplication1.Services
             Teacher teacher = _appDbContext.teacher.Find(teacherId);
             return teacher;
         }
+
+        public List<Classroom> getAllocateClassRoom(int teacherId) {
+            List<Classroom> classrooms = new List<Classroom>();
+
+           var allocatedClassrooms = _appDbContext.allocation_classroom.ToList();
+
+            foreach (var item in allocatedClassrooms) {
+                if (item.teacher_Id == teacherId) {
+                    classrooms.Add(_appDbContext.classroom.Find(item.classroom_Id));
+                }
+            }
+            
+            return classrooms;
+        }
+        public List<Subject> getAllocateSubject(int teacherId) {
+            List<Subject> subjects = new List<Subject>();
+
+            var allocatedSubjects = _appDbContext.allocation_subject.ToList();
+
+            foreach (var item in allocatedSubjects) {
+                if (item.teacher_Id == teacherId) {
+                    subjects.Add(_appDbContext.ssubject.Find(item.subject_Id));
+                }
+            }
+
+            return subjects;
+        }
     }
 }

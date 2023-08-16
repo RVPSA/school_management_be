@@ -32,9 +32,44 @@ namespace WebApplication1.Services
             _appDbContext.SaveChanges();
             return student1;
         }
-        public Student getStudent(int studentId) {
+        public StudentDetailDto getStudent(int studentId) {
             Student student = _appDbContext.student.Find(studentId);
-            return student;
+
+            List<TeacherSubject> teacherSubjects = new List<TeacherSubject>();
+            string class_name = _appDbContext.classroom.Find(student.classroom_Id).classroom_name;
+
+            var classrooms = _appDbContext.allocation_classroom.ToList();
+            foreach(var item in classrooms)
+            {
+                if (item.classroom_Id == student.classroom_Id) {
+                    TeacherSubject teacherSubject = new TeacherSubject();
+
+                    var teacher = _appDbContext.teacher.Find(item.teacher_Id);
+                    
+                    teacherSubject.first_name = teacher.first_name;
+                    teacherSubject.last_name = teacher.last_name;
+
+                    var subjects = _appDbContext.allocation_subject.ToList();
+                    foreach (var item1 in subjects) {
+                        if (item1.teacher_Id == teacher.teacher_Id) {
+                            var subject = _appDbContext.ssubject.Find(item1.subject_Id);
+                            teacherSubject.subject_name = subject.subject_name;
+                            break;
+                        }
+                    }
+                    teacherSubjects.Add(teacherSubject);
+                }
+            }
+
+            StudentDetailDto studentDetail = new StudentDetailDto();
+            studentDetail.student = student;
+            studentDetail.teacherSubject = teacherSubjects;
+            studentDetail.class_name = class_name;
+
+
+
+
+            return studentDetail;
         }
 
         public Student updateStudent(StudentDto student) {

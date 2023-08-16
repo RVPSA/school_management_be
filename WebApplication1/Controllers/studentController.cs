@@ -42,6 +42,6 @@ namespace WebApplication1.Controllers
         [HttpGet]
         [Route("[action]")]
         [Route("/api/student/getstudent")]
-        public Student getStudentMethod(int studentId) { return istudentS.getStudent(studentId); }
+        public StudentDetailDto getStudentMethod(int studentId) { return istudentS.getStudent(studentId); }
     }
 }

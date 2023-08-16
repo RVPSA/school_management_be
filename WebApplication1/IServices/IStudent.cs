@@ -14,6 +14,6 @@ namespace WebApplication1.IServices
 
         string deleteStudent(int studentId);
 
-        Student getStudent(int studentId);
+        StudentDetailDto getStudent(int studentId);
     }
 }

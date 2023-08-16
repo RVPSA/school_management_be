@@ -13,5 +13,8 @@ namespace WebApplication1.IServices
         public List<Teacher> getAllTeacher();
 
         public Teacher getTeacherById(int teacherId);
+
+        public List<Classroom> getAllocateClassRoom(int teacherId);
+        public List<Subject> getAllocateSubject(int teacherId);
     }
 }
