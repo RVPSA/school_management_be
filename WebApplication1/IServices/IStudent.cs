@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication1.DTO;
+using WebApplication1.Models;
 
 namespace WebApplication1.IServices
 {
     public interface IStudent
     {
-        string addStudent(String student);
-        string updateStudent(string student);
+        Student addStudent(StudentDto student);
+        Student updateStudent(StudentDto student);
 
-        string deleteStudent(string student);
+        string deleteStudent(int studentId);
 
-        string getStudent(string student);
+        StudentDetailDto getStudent(int studentId);
     }
 }
