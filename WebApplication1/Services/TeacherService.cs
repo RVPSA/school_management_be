@@ -23,19 +23,19 @@ namespace WebApplication1.Services
             _appDbContext.Add(teacher1);
             _appDbContext.SaveChanges();
 
-            AllocatedClassroom allocatedClassroom = new AllocatedClassroom();
-            allocatedClassroom.classroom_Id = teacher.classroom_Id;
-            allocatedClassroom.teacher_Id = teacher1.teacher_Id;
+            //AllocatedClassroom allocatedClassroom = new AllocatedClassroom();
+            //allocatedClassroom.classroom_Id = teacher.classroom_Id;
+            //allocatedClassroom.teacher_Id = teacher1.teacher_Id;
 
-            _appDbContext.Add(allocatedClassroom);
-            _appDbContext.SaveChanges();
+            //_appDbContext.Add(allocatedClassroom);
+            //_appDbContext.SaveChanges();
 
-            AllocatedSubject allocatedSubject = new AllocatedSubject();
-            allocatedSubject.subject_Id = teacher.subject_Id;
-            allocatedSubject.teacher_Id = teacher1.teacher_Id;
+            //AllocatedSubject allocatedSubject = new AllocatedSubject();
+            //allocatedSubject.subject_Id = teacher.subject_Id;
+            //allocatedSubject.teacher_Id = teacher1.teacher_Id;
 
-            _appDbContext.Add(allocatedSubject);
-            _appDbContext.SaveChanges();
+            //_appDbContext.Add(allocatedSubject);
+            //_appDbContext.SaveChanges();
 
             return teacher1;
         }
