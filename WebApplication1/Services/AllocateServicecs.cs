@@ -30,7 +30,7 @@ namespace WebApplication1.Services
                 if (item.classroom_Id == allocateClassroom.classroom_Id && item.teacher_Id == allocateClassroom.teacher_Id) 
                 { _appDbContext.allocation_classroom.Remove(item);
                     _appDbContext.SaveChanges();
-                    return "Deallocation successfull!";
+                    return "Classroom "+ allocateClassroom.classroom_Id+ " successfully dealalocated!";
                 }
             }
             return "Deallocation fail";
@@ -52,7 +52,7 @@ namespace WebApplication1.Services
                 {
                     _appDbContext.allocation_subject.Remove(item);
                     _appDbContext.SaveChanges();
-                    return "Deallocation successfull!";
+                    return "Subject " + allocateSubject.subject_Id + " successfully dealalocated!";
                 }
             }
             return "Deallocation fail";
